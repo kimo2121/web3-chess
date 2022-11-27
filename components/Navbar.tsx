@@ -3,7 +3,7 @@ import React from "react";
 import pawn from "../public/assets/pawn.png";
 const Navbar = () => {
   return (
-    <div className="box-border px-24 py-12 flex justify-between items-center sm:flex-row flex-col">
+    <div className="box-border  py-12 flex justify-between items-center sm:flex-row flex-col mx-auto w-10/12">
       <div className="flex justify-start items-center ">
         <p className="text-lg font-bold">CHESS</p>
         <Image className="mx-1" width="32" height="32" src={pawn} alt="" />
