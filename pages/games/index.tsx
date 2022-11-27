@@ -3,8 +3,6 @@ import Table from "../../components/Table";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import DatePicker from "../../components/DatePicker";
-import ViewsDatePicker from "../../components/DatePicker2";
-import DatePicker2 from "../../components/DatePicker2";
 const Tabs = () => {
   const [openTab, setOpenTab] = React.useState(1);
   return (
