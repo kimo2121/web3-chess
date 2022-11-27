@@ -51,7 +51,8 @@ const Modal = ({ openTab }: any) => {
                       id="currency"
                     >
                       <option value="volvo">0.003 ETH</option>
-                      <option value="audi">Audi</option>
+                      <option value="volvo">0.005 ETH</option>
+                      <option value="volvo">0.007 ETH</option>
                     </select>
                   </div>
                   <div className="mt-6 mb-2">
@@ -66,6 +67,7 @@ const Modal = ({ openTab }: any) => {
                       id="currency"
                     >
                       <option value="volvo">Public</option>
+                      <option value="volvo">Private</option>
                     </select>
                   </div>
                   <div className="items-center  mt-10 flex justify-end">
