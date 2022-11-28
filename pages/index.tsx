@@ -27,8 +27,8 @@ const Home: NextPage = () => {
   useEffect(() => {
     dispatch(loadConfig());
     if (account.connected) {
-      router.push("/games");
-      // window.location.replace("/games");
+      // router.push("/games");
+      window.location.replace("/games");
     }
   }, [dispatch, config, account]);
 
