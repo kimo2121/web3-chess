@@ -88,7 +88,6 @@ export const connectAccount: any = createAsyncThunk(
         connected({ address, networkId, provider, balance, usdtBalance })
       );
     });
-    console.log(ethereum);
     ethereum.on("accountsChanged", (accounts: any) => {
       dispatch(updated({ address: accounts[0] }));
     });
