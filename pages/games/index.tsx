@@ -12,16 +12,7 @@ const Tabs = () => {
           <div className="flex justify-between sm:mb-0 mb-5">
             <div></div>
             <div className="flex flex-col sm:flex-row">
-              {/* <select
-                className="w-52 h-12 border-2 rounded-md px-4 py-1"
-                name="currency"
-                id="currency"
-              >
-                <option value="volvo">0.003 ETH</option>
-                <option value="audi">Audi</option>
-              </select> */}
               <DatePicker />
-              {/* <DatePicker2 /> */}
               <button
                 style={{ backgroundColor: "#438FFE" }}
                 className="rounded-md flex  sm:h-12 h-8 w-44 justify-center items-center text-white sm:ml-3 sm:mt-0 mt-3 "

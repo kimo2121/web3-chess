@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Modal from "./Modal";
 
@@ -85,12 +86,13 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
               <Modal openTab={openTab} />
-              <button
+              <Link
+                href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
-                className="ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20 rounded-lg text-white h-10"
+                className="flex items-center justify-center  ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20 rounded-lg text-white h-10"
               >
                 Spectate
-              </button>
+              </Link>
             </td>
           </tr>
           <tr className="">
@@ -101,12 +103,13 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
               <Modal openTab={openTab} />
-              <button
+              <Link
+                href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
-                className="ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20 rounded-lg text-white h-10"
+                className="flex items-center justify-center ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20 rounded-lg text-white h-10"
               >
                 Spectate
-              </button>
+              </Link>
             </td>
           </tr>
           <tr className="">
@@ -117,12 +120,13 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
               <Modal openTab={openTab} />
-              <button
+              <Link
+                href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
-                className="ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20  rounded-lg text-white h-10"
+                className="flex items-center justify-center ml-4 text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20  rounded-lg text-white h-10"
               >
                 Spectate
-              </button>
+              </Link>
             </td>
           </tr>
         </tbody>

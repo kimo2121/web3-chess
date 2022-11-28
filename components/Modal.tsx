@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 const Modal = ({ openTab }: any) => {
@@ -82,13 +83,14 @@ const Modal = ({ openTab }: any) => {
                     >
                       Cancel
                     </button>
-                    <button
+                    <Link
+                      href="/games/joined-game"
                       style={{ backgroundColor: "#438FFE", width: "73px" }}
-                      className="h-8 box-border  mt-2   text-white text-sm font-semibold rounded-md outline-none ring-offset-2  focus:ring-2"
+                      className="h-8 box-border  mt-2 flex justify-center  items-center  text-white text-sm font-semibold rounded-md outline-none ring-offset-2  focus:ring-2"
                       onClick={() => setShowModal(false)}
                     >
                       Save
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
