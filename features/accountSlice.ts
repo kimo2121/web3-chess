@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ethers } from "ethers";
-import detectEthereumProvider from "@metamask/detect-provider";
 
-const provider = detectEthereumProvider();
-console.log(provider);
 const initialState = {
   address: null,
   networkId: null,

@@ -1,9 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
-import Modal from "../components/Modal";
-import Navbar from "../components/Navbar";
 import coinbase from "../public/assets/coinbase.png";
 import metamask from "../public/assets/metamask.png";
 import { useEffect, useState } from "react";
@@ -17,6 +14,8 @@ const Home: NextPage = () => {
   const account = useSelector((state: any) => state.account);
   const config = useSelector((state: any) => state.config);
   const router = useRouter();
+
+  console.log(account);
 
   function onWalletListItemClick(walletType: any) {
     return ({ target }: any) => {
