@@ -57,7 +57,7 @@ export const connectAccount: any = createAsyncThunk(
         case "coinbase":
           const { default: WalletLink } = await import("walletlink");
           const walletLink = new WalletLink({
-            appName: "Gasvard Web3 Auth",
+            appName: "web3-chess gamer",
             darkMode: false,
           });
 
