@@ -5,6 +5,7 @@ import Player from "./Player";
 
 const ChessBoard = () => {
   const [game, setGame] = useState<any>(new Chess());
+  const [width, setWidth] = useState<any>();
   //Let's perform a function on the game state
 
   function safeGameMutate(modify: any) {
@@ -29,12 +30,6 @@ const ChessBoard = () => {
       game.move(possibleMove[randomIndex]);
     });
   }
-  let recordedWindow;
-  useEffect(() => {}, []);
-  if (typeof window !== "undefined") {
-    recordedWindow = window;
-  }
-  console.log(recordedWindow);
 
   //Perform an action when a piece is droped by a user
 
@@ -58,13 +53,17 @@ const ChessBoard = () => {
     return (
       <div
         style={{ backgroundColor: "#383531" }}
-        className="rounded-md w-32 h-11 flex items-center justify-center"
+        className="rounded-md sm:w-32 w-20 sm:h-11 h-8 flex items-center justify-center"
       >
-        <p className="text-white text-md font-semibold">00:00:00</p>
+        <p className="text-white sm:text-md text-sm font-semibold">00:00:00</p>
       </div>
     );
   };
-
+  useEffect(() => {
+    const width = window.innerWidth;
+    setWidth(width);
+  }, []);
+  console.log(width);
   return (
     <div className="chess-room">
       <div className="flex items-center justify-between mb-6">
@@ -72,8 +71,14 @@ const ChessBoard = () => {
         <Timer />
       </div>
 
-      <Chessboard position={game.fen()} onPieceDrop={onDrop} />
-      <Chessboard boardWidth={500} position={game.fen()} onPieceDrop={onDrop} />
+      {/* <Chessboard position={game.fen()} onPieceDrop={onDrop} /> */}
+      <Chessboard
+        boardWidth={
+          width > 990 ? 600 : width > 768 ? 400 : width > 576 ? 300 : 200
+        }
+        position={game.fen()}
+        onPieceDrop={onDrop}
+      />
       <div className="flex items-center justify-between mt-6">
         <Player player="My Avatar" />
         <Timer />

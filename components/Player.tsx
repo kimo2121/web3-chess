@@ -6,11 +6,18 @@ const Player = ({ player }: any) => {
     <div className="flex items-center ">
       <div
         style={{ backgroundColor: "#383531" }}
-        className="w-11 h-11 flex items-end justify-center mr-2"
+        className="sm:w-11 sm:h-11 w-6 h-6 flex items-end justify-center mr-2"
       >
-        <BsPersonFill size="33" color="#BDBDBD" />
+        <BsPersonFill
+          className="w-4 h-4 sm:w-8 sm:h-8"
+          //   size="33"
+          color="#BDBDBD"
+        />
       </div>{" "}
-      <p className="text-md font-semibold" style={{ color: "#BDBDBD" }}>
+      <p
+        className="sm:text-md text-sm font-semibold"
+        style={{ color: "#BDBDBD" }}
+      >
         {player}
       </p>
     </div>

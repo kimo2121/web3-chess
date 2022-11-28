@@ -28,7 +28,6 @@ const Home: NextPage = () => {
             style={{
               backgroundColor: "#438FFE",
               borderRadius: "30px",
-              // width: "401px",
             }}
             className="w-72 sm:w-96 relative items-center justify-center flex text-white sm:h-16 h-12 py-4  font-semibold   text-lg"
           >
