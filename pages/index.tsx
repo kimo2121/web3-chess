@@ -15,15 +15,16 @@ const Home: NextPage = () => {
   const config = useSelector((state: any) => state.config);
   const router = useRouter();
 
-  console.log(account);
-
   function onWalletListItemClick(walletType: any) {
     return ({ target }: any) => {
-      dispatch(connectAccount(walletType));
+      if (!account.connected) {
+        dispatch(connectAccount(walletType));
+      } else {
+        alert("Disconnet from connected wallet");
+      }
       target.parentElement.parentElement.removeAttribute("open");
     };
   }
-
   useEffect(() => {
     dispatch(loadConfig());
     if (account.connected) {
