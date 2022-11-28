@@ -13,7 +13,7 @@ import { loadConfig } from "../features/configSlice";
 
 const Home: NextPage = () => {
   const dispatch: any = useDispatch();
-
+  const account = useSelector((state: any) => state.account);
   const config = useSelector((state: any) => state.config);
 
   function onWalletListItemClick(walletType: any) {

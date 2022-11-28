@@ -36,7 +36,8 @@ const Navbar = () => {
   // }, [dispatch, config]);
 
   console.log(formatAddress(account.address));
-
+  const address = account.address;
+  console.log(address);
   const router = useRouter();
   const pathname = router.pathname;
   const pathname1 = "/games/joined-game";
@@ -84,7 +85,7 @@ const Navbar = () => {
           </button>
           <button className="font-semibold text-sm text-black bg-white sm:h-12 sm:w-44 h-8 w-24 rounded-tr rounded-br">
             {/* 0xa41...91214 */}
-            {formatAddress(account.address)}
+            {account.connected ? address : "d0xa41...91214"}
           </button>
         </div>
       )}
