@@ -35,9 +35,8 @@ const Navbar = () => {
   //   dispatch(loadConfig());
   // }, [dispatch, config]);
 
-  console.log(formatAddress(account.address));
-  const address = account.address;
-  console.log(address);
+  // console.log(formatAddress(account.address));
+
   const router = useRouter();
   const pathname = router.pathname;
   const pathname1 = "/games/joined-game";
@@ -79,13 +78,17 @@ const Navbar = () => {
         <div className="sm:mt-0 mt-5">
           <button
             style={{ backgroundColor: "#438FFE" }}
-            className="font-semibold text-sm text-white sm:h-12 sm:w-20 rounded-tl rounded-bl h-8 w-16"
+            className="font-semibold text-sm text-white sm:h-12 sm:w-24 rounded-tl rounded-bl h-8 w-20"
           >
-            0.04 ETH
+            {account.connected
+              ? formatBalance(account.balance) + " ETH"
+              : "0.04 ETH"}
           </button>
-          <button className="font-semibold text-sm text-black bg-white sm:h-12 sm:w-44 h-8 w-24 rounded-tr rounded-br">
+          <button className="font-semibold text-sm text-black bg-white sm:h-12 sm:w-44 h-8 w-28 rounded-tr rounded-br">
             {/* 0xa41...91214 */}
-            {account.connected ? address : "d0xa41...91214"}
+            {account.connected
+              ? formatAddress(account.address)
+              : "d0xa41...91214"}
           </button>
         </div>
       )}

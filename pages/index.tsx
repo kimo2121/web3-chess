@@ -6,15 +6,17 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import coinbase from "../public/assets/coinbase.png";
 import metamask from "../public/assets/metamask.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connectAccount } from "../features/accountSlice";
 import { loadConfig } from "../features/configSlice";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const dispatch: any = useDispatch();
   const account = useSelector((state: any) => state.account);
   const config = useSelector((state: any) => state.config);
+  const router = useRouter();
 
   function onWalletListItemClick(walletType: any) {
     return ({ target }: any) => {
@@ -22,9 +24,14 @@ const Home: NextPage = () => {
       target.parentElement.parentElement.removeAttribute("open");
     };
   }
+
   useEffect(() => {
     dispatch(loadConfig());
-  }, [dispatch, config]);
+    if (account.connected) {
+      router.push("/games");
+      // window.location.replace("/games");
+    }
+  }, [dispatch, config, account]);
 
   return (
     <>
