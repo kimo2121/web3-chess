@@ -6,8 +6,26 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import coinbase from "../public/assets/coinbase.png";
 import metamask from "../public/assets/metamask.png";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { connectAccount } from "../features/accountSlice";
+import { loadConfig } from "../features/configSlice";
 
 const Home: NextPage = () => {
+  const dispatch: any = useDispatch();
+
+  const config = useSelector((state: any) => state.config);
+
+  function onWalletListItemClick(walletType: any) {
+    return ({ target }: any) => {
+      dispatch(connectAccount(walletType));
+      target.parentElement.parentElement.removeAttribute("open");
+    };
+  }
+  useEffect(() => {
+    dispatch(loadConfig());
+  }, [dispatch, config]);
+
   return (
     <>
       <Head>
@@ -23,8 +41,9 @@ const Home: NextPage = () => {
           Sign in with your wallet to be able to authenticate and play games
         </small>
         <div className="sm:mt-16  mt-10 flex flex-col">
-          <Link
-            href="/games"
+          <button
+            onClick={onWalletListItemClick("metamask")}
+            // href="/games"
             style={{
               backgroundColor: "#438FFE",
               borderRadius: "30px",
@@ -39,8 +58,9 @@ const Home: NextPage = () => {
               alt=""
             />
             <p className="text-sm sm:text-lg">Sign in with metamask</p>
-          </Link>
+          </button>
           <button
+            onClick={onWalletListItemClick("coinbase")}
             style={{
               backgroundColor: "transparent",
               border: "1px solid gray",

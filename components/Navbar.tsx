@@ -2,8 +2,41 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import pawn from "../public/assets/pawn.png";
+import { loadConfig } from "../features/configSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { connectAccount } from "../features/accountSlice";
+import { BigNumber, utils } from "ethers";
+
+export const formatAddress = (address: any, padding = 4) => {
+  if (address && address.length > 0) {
+    return `${address.substr(0, padding + 2)}…${address.substr(padding * -1)}`;
+  } else {
+    return address;
+  }
+};
+export const formatBalance = (balanceInWei: any) => {
+  return parseFloat(utils.formatEther(BigNumber.from(balanceInWei))).toFixed(4);
+};
 
 const Navbar = () => {
+  const config = useSelector((state: any) => state.config);
+  const account = useSelector((state: any) => state.account);
+  const dispatch: any = useDispatch();
+
+  // function onWalletListItemClick(walletType: any) {
+  //   return ({ target }: any) => {
+  //     dispatch(connectAccount(walletType));
+  //     target.parentElement.parentElement.removeAttribute("open");
+  //   };
+  // }
+
+  // useEffect(() => {
+  //   dispatch(loadConfig());
+  // }, [dispatch, config]);
+
+  console.log(formatAddress(account.address));
+
   const router = useRouter();
   const pathname = router.pathname;
   const pathname1 = "/games/joined-game";
@@ -50,7 +83,8 @@ const Navbar = () => {
             0.04 ETH
           </button>
           <button className="font-semibold text-sm text-black bg-white sm:h-12 sm:w-44 h-8 w-24 rounded-tr rounded-br">
-            0xa41...91214
+            {/* 0xa41...91214 */}
+            {formatAddress(account.address)}
           </button>
         </div>
       )}
