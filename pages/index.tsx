@@ -22,17 +22,19 @@ const Home: NextPage = () => {
       } else {
         alert("Disconnet from connected wallet");
       }
+      // if (account.connected) {
+      router.push("/games");
+      // }
       target.parentElement.parentElement.removeAttribute("open");
     };
   }
   useEffect(() => {
     dispatch(loadConfig());
-    if (account.connected) {
-      router.push("/games");
-      // window.location.replace("/games");
-    }
+    // if (account) {
+    //   router.push("/games");
+    // }
   }, [dispatch, config, account]);
-
+  console.log(config);
   return (
     <>
       <Head>

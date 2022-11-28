@@ -1,13 +1,25 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 
 const Table = ({ openTab }: any) => {
-  let recordWindow: any;
+  const [showModal, setShowModal] = useState(false);
 
-  if (typeof window !== "undefined") {
-    recordWindow = window;
-  }
+  const OpenModal = ({ setShowModal }: any) => {
+    return (
+      <button
+        disabled={openTab === 2}
+        style={{
+          backgroundColor: openTab === 2 ? "#BFBFBF" : "#438FFE",
+        }}
+        className="text-xs font-semibold xl:w-32 lg:w-28 md:w-20 sm:w-20 w-20 rounded-lg text-white h-10"
+        type="button"
+        onClick={() => setShowModal(true)}
+      >
+        Open Modal
+      </button>
+    );
+  };
 
   return (
     <div
@@ -85,7 +97,7 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">0</td>
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
-              <Modal openTab={openTab} />
+              <OpenModal setShowModal={setShowModal} />
               <Link
                 href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
@@ -102,7 +114,7 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">0</td>
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
-              <Modal openTab={openTab} />
+              <OpenModal setShowModal={setShowModal} />
               <Link
                 href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
@@ -119,7 +131,7 @@ const Table = ({ openTab }: any) => {
             <td className="h-14 w-fit">0</td>
             <td className="h-14 w-fit">04/04/2022</td>
             <td className="h-14 w-fit flex">
-              <Modal openTab={openTab} />
+              <OpenModal setShowModal={setShowModal} />
               <Link
                 href="/games/spectate"
                 style={{ border: "1px solid #438FFE", color: "#438FFE" }}
@@ -131,6 +143,11 @@ const Table = ({ openTab }: any) => {
           </tr>
         </tbody>
       </table>
+      <Modal
+        openTab={openTab}
+        setShowModal={setShowModal}
+        showModal={showModal}
+      />
     </div>
   );
 };

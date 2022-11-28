@@ -1,6 +1,6 @@
 export default function handler(req: any, res: any) {
   res.status(200).json({
-    name: "Gasvard Web3 Auth",
+    name: "Web3-Chess",
     infura_id: process.env.INFURA_KEY,
     chain_id: process.env.CHAIN_ID,
     network_name: process.env.NETWORK_NAME,
